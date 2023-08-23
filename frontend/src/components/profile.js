@@ -1,18 +1,18 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Profile = () => {
 
-    const[name,setName]=useState();
-    const[email,setEmail]=useState();
-    const[password,setPassword]=useState();
-    const[mobile,setMobile]=useState();
-    const UserId=JSON.parse(localStorage.getItem('user'))._id;
+    const [name, setName] = useState();
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const [mobile, setMobile] = useState();
+    const UserId = JSON.parse(localStorage.getItem('user'))._id;
 
-    useEffect(()=>{
+    useEffect(() => {
 
-        const getProfileData= async ()=>{
-            let result = await fetch(`http://localhost:3000/profile/${UserId}`,{
-               // method:"get",
+        const getProfileData = async () => {
+            let result = await fetch(`https://e-commercedashboard-yk94.onrender.com/profile/${UserId}`, {
+                // method:"get",
                 // headers:{
                 //     "Content-Type":"application/json"
                 // }
@@ -22,16 +22,16 @@ const Profile = () => {
             setEmail(result.email);
             setPassword(result.password);
             setMobile(result.mobile);
-    
+
             console.warn(result)
         }
 
         getProfileData();
 
-    },[UserId]);
+    }, [UserId]);
 
 
-    
+
 
     return (
 
