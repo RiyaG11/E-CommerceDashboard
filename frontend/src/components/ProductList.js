@@ -17,7 +17,7 @@ const ProductList = () => {
         const key = event.target.value;
 
         if (key) {
-            let result = await fetch(`http://localhost:3000/search/${key}`);
+            let result = await fetch(`https://e-commercedashboard-yk94.onrender.com/search/${key}`);
             result = await result.json();
             if (result) {
                 setProducts(result);
@@ -32,7 +32,7 @@ const ProductList = () => {
     const DeleteData = async (id) => {
 
 
-        let result = await fetch(`http://localhost:3000/products/${id}`, {
+        let result = await fetch(`https://e-commercedashboard-yk94.onrender.com/products/${id}`, {
             method: "Delete"
 
         })
